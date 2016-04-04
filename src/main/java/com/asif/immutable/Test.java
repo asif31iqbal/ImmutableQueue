@@ -2,8 +2,6 @@ package com.asif.immutable;
 
 /**
  * Test class for checking the correctness of ImmutableQueue
- * * The enQueue() and deQueue() 
- * Each operation of the ImmutableQueue class runs in an amortized 
  * @author asifiqbal
  *
  */
