@@ -25,7 +25,7 @@ The idea was taken from these two articles on [Immutable Stack] and [Immutable Q
 * *enQueue()* operation just pushes the new item to the *backwards* and creates a new queue using the existing *forwards* stack and the new *backwards* stack. Runs in O(1) time.
 * *deQueue()* operation is a bit tricky. It first pops from the *forwards* stack. Now it can have a few cases:
   - If the resulting stack of the *pop()* operation is the not the empty stack (means there are still items on the *forwards* stack to be deQueued), it returns a new queue constructed with the empty stack as *forwards* and the existing *backwards* as *backwards*.
-  - if the resulting stack of the *pop()* operation is the empty stack (means there are no more items on the *forwards* stack to be deQueued), there could be two further sub-cases:
+  - If the resulting stack of the *pop()* operation is the empty stack (means there are no more items on the *forwards* stack to be deQueued), there could be two further sub-cases:
     - If the *backwards* stack is empty as well, then what we have at this point is an empty queue. So it just returns the empty singleton queue.
     - If the *backwards* stack is not empty, however, then we need to get rd of the bottommost item in the *backwards* stack. This is accomplished by reversing the *backwards* stack (using the *rervse()* method). Finally, it returns a new queue constructed using the reversed stack as *forwards* and the empty singleton stack as *backwards*.
 
