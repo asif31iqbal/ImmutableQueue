@@ -12,7 +12,7 @@ The idea was taken from these two articles on [Immutable Stack] and [Immutable Q
 * *push()* operation just creates a new stack using the existing stack as tail and the new element as head, and returns the new stack. Runs in O(1) time.
 * *pop()* operation just returns the tail. Runs in O(1) time.
 * *head()* operation just returns the head. Runs in O(1) time.
-* *IsEmpty* is always true for the empty singleton stack. Otherwise it's always false. Runs in O(1) time.
+* *IsEmpty()* is always true for the empty singleton stack. Otherwise it's always false. Runs in O(1) time.
 
 ### Immutable Queue
 * Implements interface *Queue*.
@@ -31,7 +31,7 @@ The idea was taken from these two articles on [Immutable Stack] and [Immutable Q
 
   The last case is the worst case where the runtime of *deQueue()* is O(n). All the previous cases are O(1).
 * *head()* operation just returns the head of the *forwards* stack. Runs in O(1) time.
-* *IsEmpty* is always true for the empty singleton queue. Otherwise it's always false. Runs in O(1) time.
+* *IsEmpty()* is always true for the empty singleton queue. Otherwise it's always false. Runs in O(1) time.
 
 [//]: # (References)
 [Immutable Stack]: <https://blogs.msdn.microsoft.com/ericlippert/2007/12/04/immutability-in-c-part-two-a-simple-immutable-stack/>
