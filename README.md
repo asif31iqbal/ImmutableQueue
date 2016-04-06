@@ -1,5 +1,5 @@
 # Immutable Queue
-## A Java way of implementing an Immutable Queue.
+## A Java way of implementing an Immutable Queue
 
 The idea was taken from these two articles on [Immutable Stack] and [Immutable Queue] by [Eric Lippert]. The original articles use C# as the implementation language. For my implementation, I used Java. The immutable queue uses two immutable stacks, *backwards* and *forwards*, to keep track of the items being enQueued and deQueued, respectively. The summary of the data structures and algorithms is as follows.
 
