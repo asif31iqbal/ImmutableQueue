@@ -6,7 +6,7 @@ package com.asif.immutable;
  *
  * @param <T> generic type for the elemets of the stack
  */
-public class ImmutableStack<T> implements Stack<T>{
+public final class ImmutableStack<T> implements Stack<T>{
 	private final T head;
 	private final Stack<T> tail;
 	
@@ -15,24 +15,24 @@ public class ImmutableStack<T> implements Stack<T>{
 		this.tail = tail;
 	}
 	
-	public Stack<T> push(T t){		
+	public final Stack<T> push(T t){		
 		return new ImmutableStack<T>(t, this);
 	}
 	
-	public Stack<T> pop(){
+	public final Stack<T> pop(){
 		return tail;
 	}
 	
-	public T head(){
+	public final T head(){
 		return head;
 	}
 	
-	public boolean isEmpty(){
+	public final boolean isEmpty(){
 		return false;
 	}
 	
 	@SuppressWarnings("rawtypes")
-	public static Stack getEmptyStack(){
+	public final static Stack getEmptyStack(){
 		return EmptyStack.getInstance();
 	}
 	
@@ -45,26 +45,26 @@ public class ImmutableStack<T> implements Stack<T>{
 	private static final class EmptyStack<T> implements Stack<T>{
 		
 		@SuppressWarnings("rawtypes")
-		private static EmptyStack emptyStack = new EmptyStack();
+		private final static EmptyStack emptyStack = new EmptyStack();
 		
 		@SuppressWarnings("rawtypes")
-		public static EmptyStack getInstance(){
+		public final static EmptyStack getInstance(){
 			return emptyStack;
 		}
 		
-		public Stack<T> push(T t){			
+		public final Stack<T> push(T t){			
 			return new ImmutableStack<T>(t, this);
 		}
 		
-		public Stack<T> pop() throws Exception{
+		public final Stack<T> pop() throws Exception{
 			throw new Exception("Stack is empty.");
 		}
 		
-		public T head() throws Exception{
+		public final T head() throws Exception{
 			throw new Exception("Stack is empty.");
 		}
 		
-		public boolean isEmpty(){
+		public final boolean isEmpty(){
 			return true;
 		}
 	}

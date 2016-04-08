@@ -14,7 +14,7 @@ package com.asif.immutable;
  *
  * @param <T> generic type for the elemets of the queue
  */
-public class ImmutableQueue<T> implements Queue<T>{
+public final class ImmutableQueue<T> implements Queue<T>{
 	
 	private final Stack<T> backwards;
     private final Stack<T> forwards;
@@ -32,7 +32,7 @@ public class ImmutableQueue<T> implements Queue<T>{
      * @throws Exception
      */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public static Stack reverseStack(Stack stack) throws Exception
+	public final static Stack reverseStack(Stack stack) throws Exception
     {
         Stack r = ImmutableStack.getEmptyStack();
         while(!stack.isEmpty()){
@@ -44,16 +44,16 @@ public class ImmutableQueue<T> implements Queue<T>{
     }
 	
 	@SuppressWarnings({ "rawtypes" })
-	public static Queue getEmptyQueue(){
+	public final static Queue getEmptyQueue(){
 		return EmptyQueue.getInstance();
 	}
 	
-	public Queue<T> enQueue(T t){
+	public final Queue<T> enQueue(T t){
 		return new ImmutableQueue<T>(forwards, backwards.push(t));
 	}
 	
 	@SuppressWarnings("unchecked")
-	public Queue<T> deQueue() throws Exception{
+	public final Queue<T> deQueue() throws Exception{
 		Stack<T> f = forwards.pop();
         if (!f.isEmpty()){
             return new ImmutableQueue<T>(f, backwards);
@@ -66,11 +66,11 @@ public class ImmutableQueue<T> implements Queue<T>{
         }
 	}
 	
-	public T head() throws Exception{
+	public final T head() throws Exception{
 		return forwards.head();
 	}
 	
-	public boolean isEmpty(){
+	public final boolean isEmpty(){
 		return false;
 	}
 	
@@ -83,27 +83,27 @@ public class ImmutableQueue<T> implements Queue<T>{
 	private static final class EmptyQueue<T> implements Queue<T>{
 		
 		@SuppressWarnings("rawtypes")
-		private static EmptyQueue emptyQueue = new EmptyQueue();
+		private final static EmptyQueue emptyQueue = new EmptyQueue();
 		
 		@SuppressWarnings("rawtypes")
-		public static EmptyQueue getInstance(){
+		public final static EmptyQueue getInstance(){
 			return emptyQueue;
 		}
 		
 		@SuppressWarnings("unchecked")
-		public Queue<T> enQueue(T t){
+		public final Queue<T> enQueue(T t){
 			return new ImmutableQueue<T>(ImmutableStack.getEmptyStack().push(t), ImmutableStack.getEmptyStack());
 		}
 		
-		public Queue<T> deQueue() throws Exception{
+		public final Queue<T> deQueue() throws Exception{
 			throw new Exception("Queue is empty.");
 		}
 		
-		public T head() throws Exception{
+		public final T head() throws Exception{
 			throw new Exception("Queue is empty.");
 		}
 		
-		public boolean isEmpty(){
+		public final boolean isEmpty(){
 			return true;
 		}
 	}
