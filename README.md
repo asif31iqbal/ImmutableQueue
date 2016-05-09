@@ -24,10 +24,10 @@ The idea was taken from these two articles on [Immutable Stack] and [Immutable Q
 * Has a private constructor which builds itself using the *backwards* and *forwards* stacks provided as parameters.
 * *enQueue()* operation just pushes the new item to the *backwards* and creates a new queue using the existing *forwards* stack and the new *backwards* stack. There is one exception to this, however, when the very first *enQueue* is done (on the *EmptyQueue*). In that case, the item is pushed to the *forwards* stack. This is necessary since otherwise *deQueue()* will always fail, as per the *deQueue* logic described below. Runs in O(1) time.
 * *deQueue()* operation is a bit tricky. It first pops from the *forwards* stack. Now it can have a few cases:
-  - If the resulting stack of the *pop()* operation is the not the empty stack (means there are still items on the *forwards* stack to be deQueued), it returns a new queue constructed with the empty stack as *forwards* and the existing *backwards* as *backwards*.
+  - If the resulting stack of the *pop()* operation is the not the empty stack (means there are still items on the *forwards* stack to be deQueued), it returns a new queue constructed with resulting stack as *forwards* and the existing *backwards* as *backwards*.
   - If the resulting stack of the *pop()* operation is the empty stack (means there are no more items on the *forwards* stack to be deQueued), there could be two further sub-cases:
     - If the *backwards* stack is empty as well, then what we have at this point is an empty queue. So it just returns the empty singleton queue.
-    - If the *backwards* stack is not empty, however, then we need to get rd of the bottommost item in the *backwards* stack. This is accomplished by reversing the *backwards* stack (using the *rervse()* method). Finally, it returns a new queue constructed using the reversed stack as *forwards* and the empty singleton stack as *backwards*.
+    - If the *backwards* stack is not empty, however, then we need to get rid of the bottommost item in the *backwards* stack. This is accomplished by reversing the *backwards* stack (using the *rervse()* method). Finally, it returns a new queue constructed using the reversed stack as *forwards* and the empty singleton stack as *backwards*.
 
   The last case is the worst case where the runtime of *deQueue()* is O(n). All the previous cases are O(1).
 * *head()* operation just returns the head of the *forwards* stack. Runs in O(1) time.
