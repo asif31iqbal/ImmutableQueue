@@ -19,10 +19,10 @@ public final class ImmutableQueue<T> implements Queue<T>{
 	private final Stack<T> backwards;
     private final Stack<T> forwards;
      
-    private ImmutableQueue(Stack<T> f, Stack<T> b)
+    private ImmutableQueue(Stack<T> forwards, Stack<T> backwards)
     {
-        forwards = f;
-        backwards = b;
+        this.forwards = forwards;
+        this.backwards = backwards;
     }
     
     /**
